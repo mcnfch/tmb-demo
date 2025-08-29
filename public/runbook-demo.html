@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TBM/Finance Reporting Runbook (Demo)</title>
+  <style>
+    :root { --ink:#0f172a; --muted:#475569; --border:#e2e8f0; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: var(--ink); margin: 24px; }
+    h1 { font-size: 22px; margin: 0 0 10px; }
+    h2 { font-size: 14px; margin: 16px 0 6px; }
+    p, li, code, pre { font-size: 12px; line-height: 1.4; }
+    .muted { color: var(--muted); }
+    .card { border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin: 10px 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    pre { background: #f8fafc; padding: 8px; border-radius: 6px; overflow: auto; }
+    .flow { width: 100%; height: 120px; }
+    @media print { body { margin: 12mm; } .no-print { display:none; } }
+  </style>
+  </head>
+<body>
+  <h1>TBM/Finance Reporting Runbook (Demo)</h1>
+  <p class="muted">Purpose: Produce monthly CSV/JSON artifacts Finance can pivot in Excel and load in BI dashboards, with clear controls and transparency for executives.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Scope (Demo)</h2>
+      <ul>
+        <li>Jan–Aug 2025: Commerce/Orders, Marketing/Website</li>
+        <li>KPIs + Top Variances; explicit Unallocated</li>
+      </ul>
+      <h2>Inputs</h2>
+      <ul>
+        <li>Cloud spend (FOCUS-like) with tags (app, env, bu)</li>
+        <li>Forecast/Budget – <code>seeds/forecast.csv</code></li>
+        <li>Reference maps (<code>allocation_map</code>, <code>tbm_dimensions</code>)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Outputs</h2>
+      <ul>
+        <li>KPIs: YTD vs Plan, Run Rate, EOY vs Budget, Savings, Hygiene</li>
+        <li>Variance table: Actual, Budget, Forecast, Var (BU/App, Month)</li>
+        <li>Downloads: CSV/JSON endpoints for Excel &amp; BI</li>
+      </ul>
+      <h2>Controls</h2>
+      <ul>
+        <li>Unallocated line until mapping complete</li>
+        <li>Hygiene KPIs: Untagged %, FOCUS vs target</li>
+        <li>Plan coverage guardrail for demo realism</li>
+        <li>Reproducible seeds with fixed RNG</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Process (ETLVD)</h2>
+    <svg class="flow" viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <style>
+          .box{fill:#fff;stroke:#cbd5e1;stroke-width:1.2}
+          .txt{font:12px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill:#0f172a}
+          .arrow{stroke:#94a3b8;stroke-width:1.2;marker-end:url(#m)}
+        </style>
+        <marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L6,3 z" fill="#94a3b8" />
+        </marker>
+      </defs>
+      <rect class="box" x="10" y="20" width="150" height="60" rx="6"/>
+      <text class="txt" x="85" y="53" text-anchor="middle">Extract</text>
+      <rect class="box" x="190" y="20" width="150" height="60" rx="6"/>
+      <text class="txt" x="265" y="53" text-anchor="middle">Transform</text>
+      <rect class="box" x="370" y="20" width="150" height="60" rx="6"/>
+      <text class="txt" x="445" y="53" text-anchor="middle">Load</text>
+      <rect class="box" x="550" y="20" width="150" height="60" rx="6"/>
+      <text class="txt" x="625" y="43" text-anchor="middle">Validate</text>
+      <text class="txt" x="625" y="60" text-anchor="middle">&amp; Distribute</text>
+      <line class="arrow" x1="160" y1="50" x2="190" y2="50"/>
+      <line class="arrow" x1="340" y1="50" x2="370" y2="50"/>
+      <line class="arrow" x1="520" y1="50" x2="550" y2="50"/>
+    </svg>
+    <ul>
+      <li><strong>Extract</strong>: Read cloud spend, forecast, and reference CSVs</li>
+      <li><strong>Transform</strong>: Normalize fields, coerce numbers, enrich BU/App; shape KPIs and variances</li>
+      <li><strong>Load</strong>: Expose JSON/CSV via <code>/api/*</code></li>
+      <li><strong>Validate</strong>: Row counts, % untagged, plan coverage; clamp demo artifacts</li>
+      <li><strong>Distribute</strong>: Downloads + exec dashboard (KPIs, Top Variances)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Sample Variance Extract (CSV)</h2>
+    <pre>Month,BU,App,Actual,Budget,Forecast,Variance vs Budget,Variance vs Forecast
+2025-01-01,Commerce,Orders,562319,540000,550000,22319,12319
+2025-01-01,Marketing,Website,668893,710000,700000,-41107,-31107
+2025-02-01,Commerce,Orders,646181,660000,650000,-13819,-3819
+2025-02-01,Marketing,Website,951513,930000,940000,21513,11513</pre>
+  </div>
+
+  <p class="muted no-print">Print this page to PDF for the interview runbook.</p>
+</body>
+</html>

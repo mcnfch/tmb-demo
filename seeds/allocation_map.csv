@@ -1,0 +1,5 @@
+tag_key,tag_value,application,environment,cost_center,business_unit
+app,orders,Orders,Prod,CC100,Commerce
+app,orders,Orders,Dev,CC100,Commerce
+app,website,Website,Prod,CC200,Marketing
+

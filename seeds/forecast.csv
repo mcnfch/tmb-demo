@@ -1,0 +1,18 @@
+month,business_unit,application,budget,forecast
+# Expanded realistic monthly budgets and forecasts (Jan–Aug 2025)
+2025-01-01,Commerce,Orders,1200000,1220000
+2025-01-01,Marketing,Website,800000,830000
+2025-02-01,Commerce,Orders,1100000,1130000
+2025-02-01,Marketing,Website,900000,920000
+2025-03-01,Commerce,Orders,1200000,1250000
+2025-03-01,Marketing,Website,1000000,1020000
+2025-04-01,Commerce,Orders,1150000,1180000
+2025-04-01,Marketing,Website,950000,980000
+2025-05-01,Commerce,Orders,1180000,1210000
+2025-05-01,Marketing,Website,980000,1000000
+2025-06-01,Commerce,Orders,1100000,1120000
+2025-06-01,Marketing,Website,920000,940000
+2025-07-01,Commerce,Orders,1200000,1230000
+2025-07-01,Marketing,Website,1020000,1040000
+2025-08-01,Commerce,Orders,1250000,1280000
+2025-08-01,Marketing,Website,1050000,1070000

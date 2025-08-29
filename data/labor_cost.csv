@@ -1,0 +1,33 @@
+team,month,loaded_cost_usd,notes
+Infra Ops,2025-01-01,32332.45,demo
+SecOps,2025-01-01,40924.36,demo
+Platform,2025-01-01,36705.38,demo
+HPC,2025-01-01,13893.88,demo
+Infra Ops,2025-02-01,42956.3,demo
+SecOps,2025-02-01,34822.6,demo
+Platform,2025-02-01,46196.04,demo
+HPC,2025-02-01,27785.31,demo
+Infra Ops,2025-03-01,47246.52,demo
+SecOps,2025-03-01,46154.38,demo
+Platform,2025-03-01,42880.77,demo
+HPC,2025-03-01,26099.9,demo
+Infra Ops,2025-04-01,33028.36,demo
+SecOps,2025-04-01,22757.46,demo
+Platform,2025-04-01,23277.35,demo
+HPC,2025-04-01,22926.52,demo
+Infra Ops,2025-05-01,23779.22,demo
+SecOps,2025-05-01,29719.47,demo
+Platform,2025-05-01,24883.26,demo
+HPC,2025-05-01,32886.6,demo
+Infra Ops,2025-06-01,37914.91,demo
+SecOps,2025-06-01,10834.23,demo
+Platform,2025-06-01,40382.42,demo
+HPC,2025-06-01,17462.9,demo
+Infra Ops,2025-07-01,45791.71,demo
+SecOps,2025-07-01,10026.51,demo
+Platform,2025-07-01,26764.07,demo
+HPC,2025-07-01,48589.95,demo
+Infra Ops,2025-08-01,32657.55,demo
+SecOps,2025-08-01,11953.56,demo
+Platform,2025-08-01,21921.49,demo
+HPC,2025-08-01,45754.52,demo
